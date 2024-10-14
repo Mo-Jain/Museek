@@ -1,40 +1,133 @@
-<<<<<<< HEAD
-# Muzar
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align='center'>Museek</h1>
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+  - [With Docker](#with-docker)
+  - [Without Docker](#without-docker)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### With Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/code100x/Museek.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Navigate to the project directory:
+   ```bash
+   cd Museek
+   ```
 
-## Learn More
+3. Create a `.env` file based on the `.env.example` file and configure everything in both the `next-app` and `ws` folders.
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the following command to start the application:
+   ```bash
+   docker compose --env-file ./next-app/.env --env-file ./ws/.env up -d   
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Without Docker
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/code100x/Museek.git
+   ```
 
-## Deploy on Vercel
+2. Navigate to the project directory:
+   ```bash
+   cd Museek
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Now Install the dependencies:
+   ```bash
+   cd next-app
+   pnpm install
+   cd ..
+   cd ws 
+   pnpm install
+   ```
+4. Create a `.env` file based on the `.env.example` file and configure everything in both the `next-app` and `ws` folders.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 79b9971 (initalizing-next-app)
+5. For postgres, you need to run the following command:
+   ```bash
+   docker run -d \
+   --name Museek-db \
+   -e POSTGRES_USER=myuser \
+   -e POSTGRES_PASSWORD=mypassword \
+   -e POSTGRES_DB=mydatabase \
+   -p 5432:5432 \
+   postgres
+   ```
+
+6. For redis, you need to run the following command:
+   ```bash
+   docker run -d \
+   --name Museek-redis \
+   -e REDIS_USERNAME=admin \
+   -e REDIS_PASSWORD=root \
+   -e REDIS_PORT=6379 \
+   -e REDIS_HOST="127.0.0.1" \
+   -e REDIS_BROWSER_STACK_PORT=8001 \
+   redis/redis-stack:latest 
+   ```
+
+7. Now do the following:
+   ```bash
+   cd next-app
+   pnpm postinstall
+   cd ..
+   cd ws 
+   pnpm postinstall
+   ```
+
+8. Run the following command to start the application:
+   ```bash
+    cd next-app
+    pnpm dev
+    cd ..
+    cd ws
+    pnpm dev
+   ```
+
+9. To access the prisma studio, run the following command:
+   ```bash
+   cd next-app
+   pnpm run prisma:studio
+   ```
+
+## Usage 
+
+1. Access the application in your browser at http://localhost:3000
+2. Access the redis stack at http://localhost:8001/redis-stack/browser
+3. Access the prisma studio at http://localhost:5555
+
+## Contributing
+
+We welcome contributions from the community! To contribute to Museek, follow these steps:
+
+1. Fork the repository.
+
+2. Create a new branch (`git checkout -b feature/fooBar`).
+
+3. Make your changes and commit them (`git commit -am 'Add some fooBar'`).
+
+4. Push to the branch (`git push origin -u feature/fooBar`).
+
+5. Create a new Pull Request.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+Read our [contribution guidelines](./CONTRIBUTING.md) for more details.
+
+## Contributors
+
+<a href="https://github.com/code100x/Museek/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=code100x/Museek" />
+</a>
+
+If you continue to face issues, please open a GitHub issue with details about the problem you're experiencing.
