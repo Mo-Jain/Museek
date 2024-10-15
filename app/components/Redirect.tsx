@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react"
+import  { useEffect } from "react"
 
 const Redirect = () => {
     const session = useSession();
@@ -11,7 +11,7 @@ const Redirect = () => {
         if(session.data?.user){
             router.push("/dashboard");
         }
-    },[session])
+    },[session,router])
   return null
   
 };

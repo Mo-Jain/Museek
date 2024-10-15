@@ -30,6 +30,7 @@
    ```bash
    docker compose --env-file ./next-app/.env --env-file ./ws/.env up -d   
    ```
+   
 
 ### Without Docker
 
@@ -57,9 +58,9 @@
    ```bash
    docker run -d \
    --name Museek-db \
-   -e POSTGRES_USER=myuser \
-   -e POSTGRES_PASSWORD=mypassword \
-   -e POSTGRES_DB=mydatabase \
+   -e POSTGRES_USER=postgres \
+   -e POSTGRES_PASSWORD=postgres \
+   -e POSTGRES_DB=mydb \
    -p 5432:5432 \
    postgres
    ```

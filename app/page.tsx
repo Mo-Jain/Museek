@@ -1,19 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-//@ts-ignore
 import { Users, Radio, Headphones } from "lucide-react";
-// import { Appbar } from "@/components/Appbar";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-// import { authOptions } from "@/lib/auth-options";
 import { Appbar } from "./components/Appbar";
 import Redirect from "./components/Redirect";
 
 
 export default async function LandingPage() {
-  // const session = await getServerSession(authOptions);
-  // const session = useState();
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">

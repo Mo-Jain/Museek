@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 
-export function Appbar({ showThemeSwitch = true , isSpectator=false }) {
+export function Appbar({ showThemeSwitch = true }) {
   const session = useSession();
   const router = useRouter();
 
@@ -17,9 +17,9 @@ export function Appbar({ showThemeSwitch = true , isSpectator=false }) {
         onClick={() => {
           router.push("/home");
         }}
-        className={`flex flex-col justify-center text-lg font-bold hover:cursor-pointer ${showThemeSwitch ? "" : "text-white"}`}
+        className={`flex flex-col justify-center text-lg font-bold hover:cursor-pointer ${showThemeSwitch ? "text-white" : "text-white"}`}
       >
-        Muzer
+        Museek
       </div>
       <div className="flex items-center gap-x-2">
         {/* {isSpectator && <WalletMultiButton/>} */}
