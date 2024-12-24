@@ -10,6 +10,7 @@ declare module "next-auth" {
     }
 }
 
+
 const handler = NextAuth({
     providers: [
         GoogleProvider({
