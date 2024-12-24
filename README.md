@@ -12,31 +12,9 @@
 
 ## Installation
 
-### With Docker
-
 1. Clone the repository:
    ```bash
-   git clone https://github.com/code100x/Museek.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd Museek
-   ```
-
-3. Create a `.env` file based on the `.env.example` file and configure everything in both the `next-app` and `ws` folders.
-
-4. Run the following command to start the application:
-   ```bash
-   docker compose --env-file ./next-app/.env --env-file ./ws/.env up -d   
-   ```
-   
-
-### Without Docker
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/code100x/Museek.git
+   git clone https://github.com/Mo-Jain/Museek.git
    ```
 
 2. Navigate to the project directory:
@@ -101,34 +79,4 @@
    pnpm run prisma:studio
    ```
 
-## Usage 
 
-1. Access the application in your browser at http://localhost:3000
-2. Access the redis stack at http://localhost:8001/redis-stack/browser
-3. Access the prisma studio at http://localhost:5555
-
-## Contributing
-
-We welcome contributions from the community! To contribute to Museek, follow these steps:
-
-1. Fork the repository.
-
-2. Create a new branch (`git checkout -b feature/fooBar`).
-
-3. Make your changes and commit them (`git commit -am 'Add some fooBar'`).
-
-4. Push to the branch (`git push origin -u feature/fooBar`).
-
-5. Create a new Pull Request.
-
-For major changes, please open an issue first to discuss what you would like to change.
-
-Read our [contribution guidelines](./CONTRIBUTING.md) for more details.
-
-## Contributors
-
-<a href="https://github.com/code100x/Museek/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=code100x/Museek" />
-</a>
-
-If you continue to face issues, please open a GitHub issue with details about the problem you're experiencing.
