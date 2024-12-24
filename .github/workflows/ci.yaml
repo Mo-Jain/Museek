@@ -19,6 +19,8 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
+        mkdir -p ~/.ssh
+        cp known_hosts ~/.ssh/known_hosts
         ssh -t -i "museek-app-class-jainmohit.1199.pem" ubuntu@ec2-3-25-103-39.ap-southeast-2.compute.amazonaws.com  "sudo bash ~/deploy.sh"
 
 
