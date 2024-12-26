@@ -8,12 +8,13 @@ import Link from "next/link";
 export function Appbar({ showThemeSwitch = true }) {
   const session = useSession();
   const router = useRouter();
+  
 
   return (
     <div className="flex justify-between px-5 py-4 md:px-10 xl:px-20">
       <div
         onClick={() => {
-          router.push("/home");
+          router.push("/");
         }}
         className={`flex flex-col justify-center text-lg font-bold hover:cursor-pointer ${showThemeSwitch ? "text-white" : "text-white"}`}
       >
@@ -36,7 +37,7 @@ export function Appbar({ showThemeSwitch = true }) {
           <div className="space-x-3">
             <Button
               className="bg-purple-600 text-white hover:bg-purple-700"
-              onClick={() => signIn()}
+              onClick={() => router.push("/auth")}
             >
               Signin
             </Button>

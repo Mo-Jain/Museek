@@ -1,0 +1,1 @@
+ssh-keyscan ec2-3-25-103-39.ap-southeast-2.compute.amazonaws.com >> known_hosts

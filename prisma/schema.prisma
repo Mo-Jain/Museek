@@ -17,6 +17,8 @@ model User {
   id        String      @id @default(uuid())
   email     String      @unique
   provider  Provider
+  password  String?
+  name      String?
   streams   Stream[]  @relation("user")
   added     Stream[]  @relation("addedBy")
   upvotes   Upvote[]
@@ -64,6 +66,7 @@ enum StreamType {
 
 enum Provider {
   Google
+  Credentials
 }
 
 
