@@ -130,20 +130,21 @@ export const authConfig: NextAuthOptions = {
       try {
         if (account?.provider === "google") {
 
+          //@ts-nocheck
           const user = await prismaClient.user.findUnique({
             where: {
-              email: profile?.email!,
+              email: profile?.email,
             }
           });
 
-
-          if (!user) {
-            const newUser = await prismaClient.user.create({
-              data: {
-                email: profile?.email!,
-                name: profile?.name || undefined,
-                provider: "Google"
-              }
+         // @ts-nocheck
+          if (!user && profile?.email) {
+             await prismaClient.user.create({
+                data: {
+                  email: profile.email,
+                  name: profile?.name || undefined,
+                  provider: "Google"
+                }
             });
           }
         }

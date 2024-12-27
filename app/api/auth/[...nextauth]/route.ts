@@ -1,6 +1,4 @@
-import GoogleProvider from "next-auth/providers/google";
 import NextAuth, {type DefaultSession } from "next-auth"
-import { prismaClient } from "@/app/lib/db";
 import { authConfig } from "@/app/lib/auth";
 
 declare module "next-auth" {
