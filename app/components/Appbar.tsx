@@ -3,7 +3,8 @@ import {  signOut, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import Image from "next/image";
+import logo from "../museek_logo.png";
 
 export function Appbar({ showThemeSwitch = true }) {
   const session = useSession();
@@ -18,7 +19,10 @@ export function Appbar({ showThemeSwitch = true }) {
         }}
         className={`flex flex-col justify-center text-lg font-bold hover:cursor-pointer ${showThemeSwitch ? "text-white" : "text-white"}`}
       >
-        Museek
+        <div className="flex items-center gap-x-2">
+          <Image src ={logo} alt="logo" width={40} height={40} className="cursor-pointer"/>
+          Museek
+        </div>
       </div>
       <div className="flex items-center gap-x-2">
         {session.data?.user && (
