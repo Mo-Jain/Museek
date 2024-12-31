@@ -10,7 +10,6 @@ export default async function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
       <Appbar showThemeSwitch={false} />
-      <Redirect/>
       <main className="flex-1 py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
@@ -27,8 +26,8 @@ export default async function LandingPage() {
               <Button className="bg-purple-600 text-white hover:bg-purple-700">
                 <Link
                   href={{
-                    pathname: "/auth",
-                    query: { authType: "signUp" },
+                    pathname: "/dashboard",
+                    // query: { authType: "signUp" },
                   }}
                 >
                   Get Started
