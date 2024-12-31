@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Users, Radio, Headphones } from "lucide-react";
 import { Appbar } from "./components/Appbar";
-import Redirect from "./components/Redirect";
+// import Redirect from "./components/Redirect";
 
 
 export default async function LandingPage() {

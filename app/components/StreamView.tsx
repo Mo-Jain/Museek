@@ -74,6 +74,9 @@ export default function StreamView({
     setLoading(true);
     const res = await fetch("/api/streams/", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
         body: JSON.stringify({
             creatorId,
             url: inputLink
