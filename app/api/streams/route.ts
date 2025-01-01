@@ -168,7 +168,6 @@ export async function GET(req: NextRequest) {
         
     const streams= await prismaClient.stream.findMany({
         where: {
-            userId: creatorId,
             played:false
         },
         include: {
@@ -186,9 +185,6 @@ export async function GET(req: NextRequest) {
     })
     
     const activeStream = await prismaClient.currentStream.findFirst({
-        where:{
-            userId:creatorId
-        },
         include: {
             stream: true
         }
