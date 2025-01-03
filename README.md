@@ -4,11 +4,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
-  - [With Docker](#with-docker)
-  - [Without Docker](#without-docker)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
 
 ## Installation
 
@@ -26,11 +22,8 @@
    ```bash
    cd next-app
    pnpm install
-   cd ..
-   cd ws 
-   pnpm install
    ```
-4. Create a `.env` file based on the `.env.example` file and configure everything in both the `next-app` and `ws` folders.
+4. Create a `.env` file based on the `.env.example` file and configure everything in both the `app` folder
 
 5. For postgres, you need to run the following command:
    ```bash
@@ -43,33 +36,15 @@
    postgres
    ```
 
-6. For redis, you need to run the following command:
-   ```bash
-   docker run -d \
-   --name Museek-redis \
-   -e REDIS_USERNAME=admin \
-   -e REDIS_PASSWORD=root \
-   -e REDIS_PORT=6379 \
-   -e REDIS_HOST="127.0.0.1" \
-   -e REDIS_BROWSER_STACK_PORT=8001 \
-   redis/redis-stack:latest 
-   ```
-
 7. Now do the following:
    ```bash
    cd next-app
-   pnpm postinstall
-   cd ..
-   cd ws 
    pnpm postinstall
    ```
 
 8. Run the following command to start the application:
    ```bash
     cd next-app
-    pnpm dev
-    cd ..
-    cd ws
     pnpm dev
    ```
 
@@ -80,3 +55,7 @@
    ```
 
 
+## Usage 
+
+1. Access the application in your browser at http://localhost:3000
+3. Access the prisma studio at http://localhost:5555
