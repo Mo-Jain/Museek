@@ -1,12 +1,14 @@
+'use client'
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Users, Radio, Headphones } from "lucide-react";
 import { Appbar } from "./components/Appbar";
+import { useSession } from "next-auth/react";
 // import Redirect from "./components/Redirect";
 
 
-export default async function LandingPage() {
-
+export default function LandingPage() {
+  const session = useSession();
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
       <Appbar showThemeSwitch={false} />
@@ -24,14 +26,26 @@ export default async function LandingPage() {
             </div>
             <div className="space-x-4">
               <Button className="bg-purple-600 text-white hover:bg-purple-700">
-                <Link
-                  href={{
-                    pathname: "/dashboard",
-                    // query: { authType: "signUp" },
-                  }}
-                >
-                  Get Started
-                </Link>
+                {session.data?.user ? (
+                  <Link
+                    href={{
+                      pathname: "/dashboard",
+                    }}
+                  >
+                    Get Started
+                  </Link>
+                ) : (
+                  <Link
+                    href={{
+                      pathname: "/auth",
+                      query: {
+                        authType: "signIn",
+                      },
+                    }}
+                  >
+                    Get Started
+                  </Link>
+                )}
               </Button>
               <Button className="bg-white text-purple-400 hover:bg-white/90">
                 Learn More
