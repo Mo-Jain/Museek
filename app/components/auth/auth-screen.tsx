@@ -4,7 +4,7 @@ import { useState } from "react";
 import SigninCard from "./sign-in-card";
 import SignupCard from "./sign-up-card";
 import { SignInFlow } from "@/app/types/auth-types";
-import { ArrowBigLeft, ArrowLeft } from "lucide-react";
+import {  ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
